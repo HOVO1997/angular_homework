@@ -1,7 +1,7 @@
 export class ProductComponent{
 
   private id;
-  private title;
+  title;
   private description;
   private price;
   private image;

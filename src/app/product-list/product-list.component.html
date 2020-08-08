@@ -1,3 +1,8 @@
 <div>
-<app-product-row [product]="product" (myOutput)="myMethod($event)"></app-product-row>
+  <!-- Search form -->
+  <div class="md-form mt-0 w-25 mt-5 ml-auto mr-auto" style="display:flex;">
+    <input [ngModel]="searchText" (ngModelChange)="searchResult($event)"  class="form-control" type="text" placeholder="Search" aria-label="Search">
+<!--    <button (click)="searchResult()"  style="display: inline-block" class="btn btn-info">Search</button>-->
+  </div>
+  <app-product-row [product]="product" (myOutput)="myMethod($event)"></app-product-row>
 </div>
