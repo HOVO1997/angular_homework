@@ -1,14 +1,14 @@
-<section  class="mt-5" *ngFor="let prod of product">
-  <div class="card mb-3 ml-auto mr-auto" style="max-width: 540px;">
-    <div class="row no-gutters">
+<section  class="mt-5 col-sm-4" *ngFor="let prod of product" style="display: inline-block">
+  <div class="card mb-3 " style="max-width: 540px;">
+    <div class="row no-gutters shadow" style="height: 232px">
       <div class="col-md-4">
-        <img src="{{ prod['image'] }}" class="card-img h-100" alt="{{ prod['title'] }}">
+        <img src="{{ prod.image }}" class="card-img h-100" alt="{{ prod.title }}">
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">{{ prod['title'] }}</h5>
-          <p class="card-text">{{ prod['description'] }}</p>
-          <p class="card-text"><small class="text-muted">{{ prod['price'] }}$</small><button (click)="click(prod)" class="btn btn-info ml-3">link</button></p>
+          <h5 class="card-title">{{ prod.title}}</h5>
+          <p class="card-text" style="overflow: hidden;padding: 5px;text-overflow: ellipsis;">{{ prod.description }}</p>
+          <p class="card-text"><small class="text-muted">{{ prod.price }} $</small><button (click)="click(prod)" class="btn btn-info ml-3">link</button></p>
         </div>
       </div>
     </div>

@@ -3,10 +3,10 @@ export class ProductComponent{
   private id;
   title;
   private description;
-  private price;
+  price;
   private image;
 
-  public constructor(id: number, title: string, description: string, price: string, image: string) {
+  public constructor(id: number, title: string, description: string, price: number, image: string) {
     this.id = id;
     this.title = title;
     this.description = description;

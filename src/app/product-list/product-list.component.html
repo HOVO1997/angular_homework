@@ -1,8 +1,16 @@
 <div>
-  <!-- Search form -->
-  <div class="md-form mt-0 w-25 mt-5 ml-auto mr-auto" style="display:flex;">
-    <input [ngModel]="searchText" (ngModelChange)="searchResult($event)"  class="form-control" type="text" placeholder="Search" aria-label="Search">
+  <div class="md-form mt-0 w-25 mt-5 ml-auto mr-auto" style="display:flex">
+    <input [ngModel]="searchText" (ngModelChange)="searchResult($event)"  class="form-control mr-1" type="text" placeholder="Search" aria-label="Search">
 <!--    <button (click)="searchResult()"  style="display: inline-block" class="btn btn-info">Search</button>-->
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Price Range
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <button class="dropdown-item" type="button" (click)="sortPrice(false)">Ascending ↑</button>
+                <button class="dropdown-item" type="button" (click)="sortPrice(true)">Descending ↓</button>
+      </div>
+    </div>
   </div>
   <app-product-row [product]="product" (myOutput)="myMethod($event)"></app-product-row>
 </div>
