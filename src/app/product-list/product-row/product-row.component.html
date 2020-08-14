@@ -1,16 +1,42 @@
-<section  class="mt-5 col-sm-4" *ngFor="let prod of product" style="display: inline-block">
-  <div class="card mb-3 " style="max-width: 540px;">
+<div *ngIf="isLoading" class="mt-4" style="position:absolute; left: 45%;z-index: 9">
+  <app-loader></app-loader>
+</div>
+<div style="margin-bottom: 100px">
+<section class="mt-5 col-sm-4" *ngFor="let prod of product" style="display: inline-block">
+  <div class="card mb-3" style="max-width: 540px;">
     <div class="row no-gutters shadow" style="height: 232px">
       <div class="col-md-4">
-        <img src="{{ prod.image }}" class="card-img h-100" alt="{{ prod.title }}">
+        <img src="{{ prod.image }}" class="card-img" style="height: 90%" alt="{{ prod.title }}">
       </div>
       <div class="col-md-8">
-        <div class="card-body">
+        <div class="card-body" style="position: relative">
           <h5 class="card-title">{{ prod.title}}</h5>
           <p class="card-text" style="overflow: hidden;padding: 5px;text-overflow: ellipsis;">{{ prod.description }}</p>
-          <p class="card-text"><small class="text-muted">{{ prod.price }} $</small><button (click)="click(prod)" class="btn btn-info ml-3">link</button></p>
+          <p class="card-text"><small class="text-muted">{{ prod.price }} $</small>
+            <button (click)="click(prod)" class="btn btn-info ml-3 text-dark">link</button>
+            <button (click)="deleteProd(prod)" style="display: inline-block" class="btn btn-danger text-dark ml-1">
+              Delete
+            </button>
+            <button (click)="edit(prod)" style="display: inline-block" class="btn btn-warning text-dark ml-1">Edit
+            </button>
+          </p>
         </div>
+        <form *ngIf="editProd === prod && isEdit === true"
+              style="position: absolute;background: grey;right: 0;z-index: 9999">
+          <div class="form-group">
+            <br>
+            <input type="text" class="form-control" [(ngModel)]="prod.title" name="title">
+            <br>
+            <input type="text" class="form-control" [(ngModel)]="prod.description" name="description">
+            <br>
+            <input appHotkeysBlocker type="number" class="form-control" [(ngModel)]="prod.price" name="price">
+            <br>
+            <input type="text" class="form-control" [(ngModel)]="prod.image" name="image">
+            <br>
+          </div>
+        </form>
       </div>
     </div>
   </div>
 </section>
+</div>
