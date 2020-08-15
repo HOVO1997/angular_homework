@@ -9,6 +9,8 @@ import {FormsModule} from '@angular/forms';
 import { LoaderComponent } from './loader/loader.component';
 import { HotkeysBlockerDirective } from './hotkeys-blocker.directive';
 import { FooterComponent } from './footer/footer.component';
+import { DataService } from './data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,12 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+  DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

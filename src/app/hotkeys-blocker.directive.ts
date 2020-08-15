@@ -23,6 +23,9 @@ export class HotkeysBlockerDirective {
       return false;
     };
   }
+  // @HostListener('paste', ['$event'])  public blockPaste(e: KeyboardEvent): void {    e.preventDefault();  }
+  // @HostListener('copy', ['$event'])  public blockCopy(e: KeyboardEvent): void {    e.preventDefault();  }
+  // @HostListener('cut', ['$event'])  public blockCut(e: KeyboardEvent): void {    e.preventDefault();  }
 
   @HostListener('mouseleave') onMouseleave(): void {
     document.addEventListener('copy', (e): boolean => {
