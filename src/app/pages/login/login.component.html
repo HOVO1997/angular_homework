@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+<div class="container">
+
+  <div class="card bg-light mt-5">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+      <h4 class="card-title mt-3 text-center">Log in Account</h4>
+      <form [formGroup]="myForm">
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+          </div>
+          <input formControlName="email" name="email" class="form-control" placeholder="Email address" type="email">
+        </div>
+        <div style="display:flex;justify-content: center">
+          <p *ngIf="myForm.controls['email'].touched  && myForm.controls['email'].hasError('required')"
+             class="text-danger d-inline">Email is required</p>
+          <p *ngIf="myForm.controls['email'].hasError('pattern') && myForm.controls['email'].touched"
+             class="text-danger d-inline">Invalid email</p>
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+          <input formControlName="password" name="password" class="form-control" placeholder="Password" type="password">
+        </div>
+        <div style="display:flex;justify-content: center">
+          <p *ngIf="myForm.controls['password'].touched  && myForm.controls['password'].hasError('required')"
+             class="text-danger d-inline">Password is required</p>
+        </div>
+        <div class="form-group">
+          <button [disabled]="myForm.invalid" type="submit" class="btn btn-primary btn-block"> Log in</button>
+        </div>
+        <p class="text-center">Have not account? <a class="link" (click)="toReg()">Register</a></p>
+      </form>
+    </article>
+  </div>
+
+</div>
+

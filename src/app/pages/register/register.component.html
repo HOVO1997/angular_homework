@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+<div class="container">
+
+  <div class="card bg-light mt-5 mb-5">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+      <h4 class="card-title mt-3 text-center">Create Account</h4>
+      <p class="text-center">Get started with your free account</p>
+      <form [formGroup]="myForm">
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input formControlName="name" name="name" class="form-control" placeholder="Full name" style="display: block"
+                 type="text">
+        </div>
+        <div style="display:flex;justify-content: center">
+          <p *ngIf="myForm.controls['name'].touched  && myForm.controls['name'].hasError('required')"
+             class="text-danger d-inline">Name is required</p>
+          <p *ngIf="myForm.controls['name'].hasError('minlength') && myForm.controls['name'].touched"
+             class="text-danger d-inline">Min length is 2 symbol</p>
+          <p *ngIf="myForm.controls['name'].hasError('maxlength') && myForm.controls['name'].touched"
+             class="text-danger d-inline">Max length is 18 symbol</p>
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+          </div>
+          <input formControlName="email" name="email" class="form-control" placeholder="Email address" type="email">
+        </div>
+        <div style="display:flex;justify-content: center">
+          <p *ngIf="myForm.controls['email'].touched  && myForm.controls['email'].hasError('required')"
+             class="text-danger d-inline">Email is required</p>
+          <p *ngIf="myForm.controls['email'].hasError('pattern') && myForm.controls['email'].touched"
+             class="text-danger d-inline">Invalid email</p>
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+          </div>
+          <select class="custom-select" style="max-width: 120px;">
+            <option selected="">+374</option>
+            <option value="1">+972</option>
+            <option value="2">+198</option>
+            <option value="3">+701</option>
+          </select>
+          <input formControlName="phone" name="phone" class="form-control" placeholder="Phone number" type="text">
+        </div>
+        <div style="display:flex;justify-content: center">
+          <p *ngIf="myForm.controls['phone'].touched  && myForm.controls['phone'].hasError('required')"
+             class="text-danger d-inline">Phone is required</p>
+          <p *ngIf="myForm.controls['phone'].hasError('pattern') && myForm.controls['phone'].touched"
+             class="text-danger d-inline">Invalid phone</p>
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+          </div>
+          <select formControlName="work" class="form-control">
+            <option value="" disabled selected hidden>Select job type</option>
+            <option>Designer</option>
+            <option>Manager</option>
+            <option>Programmer</option>
+          </select>
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+          <input formControlName="password" class="form-control" placeholder="Create password" type="password">
+        </div>
+        <div style="display:flex;justify-content: center">
+          <p *ngIf="myForm.controls['password'].touched  && myForm.controls['password'].hasError('required')"
+             class="text-danger d-inline">Password is required</p>
+          <p *ngIf="myForm.controls['password'].hasError('minlength') && myForm.controls['password'].touched"
+             class="text-danger d-inline">Min length is 6</p>
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+          <input formControlName="confirm" class="form-control" placeholder="Repeat password" type="password">
+        </div>
+        <div style="display:flex;justify-content: center">
+          <p *ngIf="myForm.controls['confirm'].touched  && myForm.controls['confirm'].hasError('required')"
+             class="text-danger d-inline">Repeat Password is required &nbsp;</p>
+          <p *ngIf="myForm.hasError('notSame')" class="text-danger d-inline">Not same</p>
+        </div>
+        <div class="form-group">
+          <button [disabled]="myForm.invalid" (click)="Register()" type="submit" class="btn btn-primary btn-block"> Create Account</button>
+        </div>
+        <p class="text-center">Have an account? <a class="link" (click)="toLogin()">Log In</a></p>
+      </form>
+    </article>
+  </div>
+
+</div>
+
