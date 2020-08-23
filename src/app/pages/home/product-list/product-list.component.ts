@@ -1,5 +1,4 @@
 import {Component, OnInit, Output} from '@angular/core';
-
 import {ProductComponent} from './product/product.component';
 import { DataService } from '../../../data.service';
 
@@ -14,7 +13,6 @@ export class ProductListComponent implements OnInit {
   public isLoading = true;
   public searchText: string;
   public cachedArray: ProductComponent[] = [];
-
 
   constructor(private dataService: DataService) {
   }
@@ -44,6 +42,17 @@ export class ProductListComponent implements OnInit {
         }
       );
     }, 300);
+  }
+
+  public category(val: string): void{
+    this.product = this.cachedArray;
+    for ( const prod of this.product ) {
+    this.product = this.product.filter(arr => arr.category === val);
+    }
+  }
+
+  public discharge(): any{
+    return this.product = this.cachedArray;
   }
 
   public sortPrice($event: boolean): void {

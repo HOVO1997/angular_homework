@@ -1,11 +1,11 @@
 {
   "productList":
 [
-  {"id":0, "title": "Dell", "description":"Dell Inspiron 3593  3593-8604 Intel Core i3-1005G1 (4M Cache, up to 3.40 GHz)-4GB RAM-1TB HDD", "price":500, "image":"https://static.nout.am/media/catalog/product/cache/1/thumbnail/800x/17f82f742ffe127f42dca9de82fb58b1/3/5/3593-8604.jpg"},
-  {"id":1, "title": "Asus", "description":"Asus M570DD-DM009 15.6\"(1920x1080) / AMD Quad Core R5-3500U (2.1GHz up to 3.7GHz) / 8GB RAM", "price":100, "image":"https://static.nout.am/media/catalog/product/cache/1/thumbnail/800x/17f82f742ffe127f42dca9de82fb58b1/m/5/m570dd-dm009.jpg"},
-  {"id":2, "title": "Msi", "description":"MSI Modern 14 B4MW-022RU 14\"(1920×1080)IPS / AMD Ryzen 5 4500U(8MB, 2.3GHz Up to 4.0GHz)", "price":254, "image":"https://static.nout.am/media/catalog/product/cache/1/thumbnail/800x/17f82f742ffe127f42dca9de82fb58b1/n/e/ne-0019368.jpg"},
-  {"id":3, "title": "Lenovo", "description":"Lenovo IdeaPad S145-15IKB 15.6\"(1920×1080) / Intel Core i3-8130U", "price":1000, "image":"https://static.nout.am/media/catalog/product/cache/1/thumbnail/800x/17f82f742ffe127f42dca9de82fb58b1/8/1/81w800k2rk_1.jpg"},
-  {"id":4, "title": "Hp", "description":"HP 240 G7 14\" (1366x768) / Intel Core i3-7020U (3M Cache, 2.30 GHz ) / 8GB RAM / 128GB SSD", "price":300, "image":"https://static.nout.am/media/catalog/product/cache/1/thumbnail/800x/17f82f742ffe127f42dca9de82fb58b1/1/_/1_57_152.jpg"},
-  {"id":5, "title": "Acer", "description":"Acer A315-41G 15.6\" (1920x1080) / AMD Quad Core R5-2500U (4M Cache, 2GHz up to 3.6 GHz)", "price":4000, "image":"https://static.nout.am/media/catalog/product/cache/1/thumbnail/800x/17f82f742ffe127f42dca9de82fb58b1/1/_/1_31_14_1_1_1_2_1_2_1.jpg"}
+  {"id":0, "title": "Dell", "category": "phones", "description":"Dell Inspiron 3593  3593-8604 Intel Core i3-1005G1 (4M Cache, up to 3.40 GHz)-4GB RAM-1TB HDD", "price":500, "image":"https://static.nout.am/media/catalog/product/cache/1/thumbnail/800x/17f82f742ffe127f42dca9de82fb58b1/3/5/3593-8604.jpg"},
+  {"id":1, "title": "Asus", "category": "shoes", "description":"Asus M570DD-DM009 15.6\"(1920x1080) ", "price":100, "image":"https://static.nout.am/media/catalog/product/cache/1/thumbnail/800x/17f82f742ffe127f42dca9de82fb58b1/m/5/m570dd-dm009.jpg"},
+  {"id":2, "title": "Msi", "category": "tv", "description":"MSI Modern 14 B4MW-022RU 14\"(1920×1080)IPS / AMD Ryzen 5 4500U(8MB, 2.3GHz Up to 4.0GHz)", "price":254, "image":"https://static.nout.am/media/catalog/product/cache/1/thumbnail/800x/17f82f742ffe127f42dca9de82fb58b1/n/e/ne-0019368.jpg"},
+  {"id":3, "title": "Lenovo", "category": "phones", "description":"Lenovo IdeaPad S145-15IKB 15.6\"(1920×1080) / Intel Core i3-8130U", "price":1000, "image":"https://static.nout.am/media/catalog/product/cache/1/thumbnail/800x/17f82f742ffe127f42dca9de82fb58b1/8/1/81w800k2rk_1.jpg"},
+  {"id":4, "title": "Hp", "category": "shoes", "description":"HP 240 G7 14\" (1366x768) / Intel Core i3-7020U (3M Cache, 2.30 GHz ) / 8GB RAM / 128GB SSD", "price":300, "image":"https://static.nout.am/media/catalog/product/cache/1/thumbnail/800x/17f82f742ffe127f42dca9de82fb58b1/1/_/1_57_152.jpg"},
+  {"id":5, "title": "Acer", "category": "tv", "description":"Acer A315-41G 15.6\" (1920x1080) / AMD Quad Core R5-2500U (4M Cache, 2GHz up to 3.6 GHz)", "price":4000, "image":"https://static.nout.am/media/catalog/product/cache/1/thumbnail/800x/17f82f742ffe127f42dca9de82fb58b1/1/_/1_31_14_1_1_1_2_1_2_1.jpg"}
 ]
 }
