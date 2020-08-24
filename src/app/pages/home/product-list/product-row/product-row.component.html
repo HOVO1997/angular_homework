@@ -15,7 +15,7 @@
                style="overflow: hidden;padding: 5px;text-overflow: ellipsis;">{{ prod.description }}</p>
             <small>category - {{ prod.category }}</small>
             <p class="card-text"><small class="text-muted">{{ prod.price | currency }}</small>
-              <button (click)="click(prod)" class="btn btn-info ml-3 text-dark shadow">link</button>
+              <button (click)="link(prod.id)" class="btn btn-info ml-3 text-dark shadow">link</button>
               <button (click)="deleteProd(prod)" style="display: inline-block" class="btn btn-danger text-dark ml-1 shadow">
                 Delete
               </button>

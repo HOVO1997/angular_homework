@@ -1,6 +1,6 @@
 import {Component, OnInit, Output} from '@angular/core';
 import {ProductComponent} from './product/product.component';
-import { DataService } from '../../../data.service';
+import {DataService} from '../../../data.service';
 
 @Component({
   selector: 'app-product-list',
@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit {
   public isLoading = true;
   public searchText: string;
   public cachedArray: ProductComponent[] = [];
+
 
   constructor(private dataService: DataService) {
   }
@@ -28,7 +29,7 @@ export class ProductListComponent implements OnInit {
   }
 
   public getProducts(): void {
-    this.dataService.getData().subscribe(users => this.product = this.cachedArray  = users.productList);
+    this.dataService.getData().subscribe(users => this.product = this.cachedArray = users.productList);
     this.isLoading = !this.isLoading;
   }
 
@@ -44,15 +45,23 @@ export class ProductListComponent implements OnInit {
     }, 300);
   }
 
-  public category(val: string): void{
-    this.product = this.cachedArray;
-    for ( const prod of this.product ) {
-    this.product = this.product.filter(arr => arr.category === val);
-    }
+  public category(val: string): void {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = !this.isLoading;
+      this.product = this.cachedArray;
+      for (const prod of this.product) {
+        this.product = this.product.filter(arr => arr.category === val);
+      }
+    }, 2000);
   }
 
-  public discharge(): any{
-    return this.product = this.cachedArray;
+  public discharge(): any {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = !this.isLoading;
+      return this.product = this.cachedArray;
+    }, 2000);
   }
 
   public sortPrice($event: boolean): void {

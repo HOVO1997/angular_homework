@@ -1,4 +1,5 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import { Router } from '@angular/router';
 
 import {ProductComponent} from '../product/product.component';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -16,7 +17,7 @@ export class ProductRowComponent implements OnInit {
   public isEdit = false;
   public myForm: FormGroup;
 
-  constructor() {
+  constructor(private rout: Router) {
     this.myForm = new FormGroup({
       title : new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(18)]),
       description : new FormControl('', [Validators.required, Validators.minLength(15), Validators.maxLength(150)]),
@@ -42,6 +43,10 @@ export class ProductRowComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  link(val): void{
+    this.rout.navigate(['/home', val]);
   }
 
   click(value: ProductComponent): void {

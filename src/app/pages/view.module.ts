@@ -17,10 +17,12 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { LoaderComponent } from '../loader/loader.component';
 import { HotkeysBlockerDirective } from '../hotkeys-blocker.directive';
+import { ItemComponentComponent } from './home/product-list/item-component/item-component.component';
 
 const appRouts: Routes = [
   { path : '', redirectTo : 'home', pathMatch : 'full' },
   { path : 'home', component : HomeComponent },
+  { path : 'home/:id', component : ItemComponentComponent },
   { path : 'about', component : AboutComponent },
   { path : 'contact', component : ContactusComponent },
   { path : 'login', component : LoginComponent },
@@ -48,7 +50,8 @@ const appRouts: Routes = [
     HeaderComponent,
     FooterComponent,
     LoaderComponent,
-    HotkeysBlockerDirective
+    HotkeysBlockerDirective,
+    ItemComponentComponent
   ],
   exports: [
     HomeComponent,
