@@ -1,2 +1,26 @@
-<h1>{{ id }}</h1>
-
+<section class="container">
+  <div class="d-flex justify-content-center mt-5">
+    <div *ngIf="id >= product.length">
+      <h2>Product nor found!</h2>
+    </div>
+    <div *ngFor="let prod of product">
+      <div *ngIf="prod.id === id">
+        <div class="card mb-3 shadow" style="max-width: 540px;">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="{{prod.image}}" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{prod.title}}</h5>
+                <p class="card-text">{{prod.description}}</p>
+                <p class="card-text"><small>category {{prod.category}}</small></p>
+                <p class="card-text"><small class="text-primary">{{ prod.price | currency }}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

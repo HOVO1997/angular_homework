@@ -11,41 +11,56 @@
         <div class="col-md-8">
           <div class="card-body" style="position: relative">
             <h5 class="card-title">{{ prod.title}}</h5>
-            <p class="card-text"
+            <p class="card-text size"
                style="overflow: hidden;padding: 5px;text-overflow: ellipsis;">{{ prod.description }}</p>
             <small>category - {{ prod.category }}</small>
-            <p class="card-text"><small class="text-muted">{{ prod.price | currency }}</small>
-              <button (click)="link(prod.id)" class="btn btn-info ml-3 text-dark shadow">link</button>
-              <button (click)="deleteProd(prod)" style="display: inline-block" class="btn btn-danger text-dark ml-1 shadow">
+            <p class="card-text mt-3"><small class="text-primary">{{ prod.price | currency }}</small>
+              <button (click)="link(prod.id)" class="btn btn-info ml-3 text-dark shadow">More</button>
+              <button (click)="deleteProd(prod)" style="display: inline-block"
+                      class="btn btn-danger text-dark ml-1 shadow">
                 Delete
               </button>
-              <button (click)="edit(prod)" style="display: inline-block" class="btn btn-warning text-dark ml-1 shadow">Edit
+              <button (click)="edit(prod)" style="display: inline-block" class="btn btn-warning text-dark ml-1 shadow">
+                Edit
               </button>
             </p>
           </div>
-          <form *ngIf="editProd === prod && isEdit === true"  [formGroup]="myForm"
-                style="position: absolute;background-color: #8EC5FC;background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);;right: 0;z-index: 9999" class="pl-2 pr-2 rounded shadow">
+          <form *ngIf="editProd === prod && isEdit === true" [formGroup]="myForm"
+                style="position: absolute;background-color: #8EC5FC;background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);;right: 0;z-index: 9999"
+                class="pl-2 pr-2 rounded shadow">
             <div class="form-group">
               <br>
               <input formControlName="title" type="text" class="form-control" name="title" placeholder="Title" required>
-              <p *ngIf="myForm.controls['title'].touched  && myForm.controls['title'].hasError('required')" class="text-danger d-inline">Title is required</p>
-              <p *ngIf="myForm.controls['title'].hasError('minlength') && myForm.controls['title'].touched" class="text-danger d-inline">Min length is 2 symbol</p>
-              <p *ngIf="myForm.controls['title'].hasError('maxlength') && myForm.controls['title'].touched" class="text-danger d-inline">Max length is 18 symbol</p>
+              <p *ngIf="myForm.controls['title'].touched  && myForm.controls['title'].hasError('required')"
+                 class="text-danger d-inline">Title is required</p>
+              <p *ngIf="myForm.controls['title'].hasError('minlength') && myForm.controls['title'].touched"
+                 class="text-danger d-inline">Min length is 2 symbol</p>
+              <p *ngIf="myForm.controls['title'].hasError('maxlength') && myForm.controls['title'].touched"
+                 class="text-danger d-inline">Max length is 18 symbol</p>
               <br>
-              <textarea formControlName="description" class="form-control" name="description" placeholder="Description" required></textarea>
-              <p *ngIf="myForm.controls['description'].touched  && myForm.controls['description'].hasError('required')" class="text-danger d-inline">Description is required</p>
-              <p *ngIf="myForm.controls['description'].hasError('minlength') && myForm.controls['description'].touched" class="text-danger d-inline">Min length is 15 symbol</p>
-              <p *ngIf="myForm.controls['description'].hasError('maxlength') && myForm.controls['description'].touched" class="text-danger d-inline">Max length is 150 symbol</p>
+              <textarea formControlName="description" class="form-control" name="description" placeholder="Description"
+                        required></textarea>
+              <p *ngIf="myForm.controls['description'].touched  && myForm.controls['description'].hasError('required')"
+                 class="text-danger d-inline">Description is required</p>
+              <p *ngIf="myForm.controls['description'].hasError('minlength') && myForm.controls['description'].touched"
+                 class="text-danger d-inline">Min length is 15 symbol</p>
+              <p *ngIf="myForm.controls['description'].hasError('maxlength') && myForm.controls['description'].touched"
+                 class="text-danger d-inline">Max length is 150 symbol</p>
               <br>
-              <input formControlName="price" appHotkeysBlocker type="number" class="form-control" name="price" placeholder="Price" required>
-              <p *ngIf="myForm.controls['price'].touched  && myForm.controls['price'].hasError('required')" class="text-danger d-inline">Price is required</p>
-              <p *ngIf="myForm.controls['price'].hasError('pattern')" class="text-danger d-inline">Price must be more than 2 value</p>
+              <input formControlName="price" appHotkeysBlocker type="number" class="form-control" name="price"
+                     placeholder="Price" required>
+              <p *ngIf="myForm.controls['price'].touched  && myForm.controls['price'].hasError('required')"
+                 class="text-danger d-inline">Price is required</p>
+              <p *ngIf="myForm.controls['price'].hasError('pattern')" class="text-danger d-inline">Price must be more
+                than 2 value</p>
               <br>
               <input formControlName="img" type="text" class="form-control" name="image" placeholder="IMG URL" required>
-              <p *ngIf="myForm.controls['img'].touched  && myForm.controls['img'].hasError('required')" class="text-danger d-inline">IMG URL is required</p>
+              <p *ngIf="myForm.controls['img'].touched  && myForm.controls['img'].hasError('required')"
+                 class="text-danger d-inline">IMG URL is required</p>
               <br>
               <div style="display: flex;justify-content: center">
-                <button [disabled]="myForm.invalid" type="submit" (click)="submit(prod)"  class="btn btn-warning">Save</button>
+                <button [disabled]="myForm.invalid" type="submit" (click)="submit(prod)" class="btn btn-warning">Save
+                </button>
               </div>
             </div>
           </form>

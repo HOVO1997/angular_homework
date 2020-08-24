@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
-import { DataService } from '../../../../data.service';
+import {DataService} from '../../../../data.service';
+import {ProductComponent} from '../product/product.component';
 
 @Component({
   selector: 'app-item-component',
@@ -12,23 +13,19 @@ export class ItemComponentComponent implements OnInit {
 
   private routeSubscription: Subscription;
   public id: number;
-  public product;
+  public product: ProductComponent[] = [];
 
   constructor(private rout: ActivatedRoute, private dataService: DataService) {
-    this.routeSubscription = rout.params.subscribe(params => this.id = params.id);
   }
 
-  public getProducts(): void {
-    this.dataService.getData().subscribe(item => this.product = item.productList);
-    // for (const prod of this.product){
-    //   if (prod.id === this.id){
-    //     this.item = prod;
-    //   }
-    // }
-  }
 
   ngOnInit(): void {
-    this.getProducts();
+    this.dataService.getData().subscribe((item) => {
+      this.product = item.productList;
+      this.routeSubscription = this.rout.params.subscribe((params) => {
+        this.id = params.id;
+        this.id = +this.id;
+      });
+    });
   }
-
 }
