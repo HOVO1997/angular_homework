@@ -1,4 +1,4 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductComponent} from './product/product.component';
 import {DataService} from '../../../data.service';
 
@@ -68,15 +68,16 @@ export class ProductListComponent implements OnInit {
     this.isLoading = true;
     setTimeout(() => {
       this.isLoading = !this.isLoading;
-      for (let j = 0; j < this.product.length; j++) {
-        for (let i = 0; i < this.product.length - 1; i++) {
-          if (this.product[i].price > this.product[i + 1].price) {
-            const tmp = this.product[i];
-            this.product[i] = this.product[i + 1];
-            this.product[i + 1] = tmp;
-          }
+
+      this.product.sort((a, b) => {
+        if (a.price === 0) {
+          return 1;
+        } else if (b.price === 0) {
+          return -1;
+        } else {
+          return a.price - b.price;
         }
-      }
+      });
       if ($event === true) {
         this.product = this.product.reverse();
       }

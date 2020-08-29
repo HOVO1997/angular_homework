@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {DataService} from '../../../../data.service';
@@ -18,7 +18,6 @@ export class ItemComponentComponent implements OnInit {
   constructor(private rout: ActivatedRoute, private dataService: DataService) {
   }
 
-
   ngOnInit(): void {
     this.dataService.getData().subscribe((item) => {
       this.product = item.productList;
@@ -28,4 +27,5 @@ export class ItemComponentComponent implements OnInit {
       });
     });
   }
+
 }
