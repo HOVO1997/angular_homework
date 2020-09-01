@@ -39,6 +39,8 @@ export class RegisterComponent implements OnInit {
   }
 
   Register(): void {
+    sessionStorage.setItem('email',`${this.myForm.controls.email.value}`)
+    sessionStorage.setItem('password',`${this.myForm.controls.password.value}`)
     this.router.navigateByUrl('login');
   }
 

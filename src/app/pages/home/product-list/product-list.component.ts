@@ -68,7 +68,6 @@ export class ProductListComponent implements OnInit {
     this.isLoading = true;
     setTimeout(() => {
       this.isLoading = !this.isLoading;
-
       this.product.sort((a, b) => {
         if (a.price === 0) {
           return 1;

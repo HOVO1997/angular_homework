@@ -10,6 +10,7 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   public myForm: FormGroup;
+  public wrong: string;
 
   constructor(private router: Router) {
 
@@ -22,6 +23,16 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  logIn(): void {
+    let get_email = sessionStorage.getItem('email');
+    let get_pass = sessionStorage.getItem('password');
+    if (this.myForm.controls.email.value === get_email && this.myForm.controls.password.value === get_pass) {
+      this.router.navigateByUrl('home');
+    }
+    this.wrong = "Wrong Email or Password";
+  }
+
 
   toReg(): void {
     this.router.navigateByUrl('register');

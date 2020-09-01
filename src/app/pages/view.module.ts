@@ -5,7 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { HotkeysBlockerDirective } from '../hotkeys-blocker.directive';
-
+import { LoginGuard } from "../login.guard";
 
 const appRouts: Routes = [
   {
@@ -15,7 +15,8 @@ const appRouts: Routes = [
   },
   {
     path : 'home',
-    loadChildren: () => import('../pages/home/home.module').then(m => m.HomeModule)
+    canActivate: [LoginGuard],
+    loadChildren: () => import('../pages/home/home.module').then(m => m.HomeModule),
   },
   {
     path : 'home/:id',
@@ -58,5 +59,8 @@ const appRouts: Routes = [
     FooterComponent,
     RouterModule,
   ],
+  providers: [
+    LoginGuard
+  ]
 })
 export class ViewModule {}
